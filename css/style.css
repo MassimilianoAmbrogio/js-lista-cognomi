@@ -1,0 +1,26 @@
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+h1 {
+    text-align: center;
+}
+
+/* MAIN */
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    
+}
+
+ul li {
+    margin-bottom: 16px;
+    margin-top: 10px;
+}
