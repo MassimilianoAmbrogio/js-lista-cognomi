@@ -5,22 +5,41 @@
    scrivi anche la posizione "umana" della lista in cui il nuovo utente si trova
  */
 
-//  Domanda all'utente
-var user = prompt('Quale è il tuo cognome?');
-var list = ['Bianchi', 'Rossi', 'Duzioni', 'Balsano', 'Giorgini', 'Ambrogio'];
+ // Dati
+var listaCognomi = ['Bianchi', 'Rossi', 'Duzioni', 'Balsano', 'Giorgini'];
 
-// lista ordinata alfabeticamente
-list.sort();
+//  Domanda all'utente
+var cognomeUtente = prompt('Quale è il tuo cognome?').trim();
+
+while (cognomeUtente === '') {
+  cognomeUtente = prompt('Quale è il tuo cognome?').trim();
+}
+
+// Aggiunta dati utente
+listaCognomi.push(cognomeUtente);
+
+// Creare lista da organizzare
+listaCognomiOrdinata = listaCognomi.slice();
+
+// Ordinare alfabeticamente
+listaCognomiOrdinata.sort();
+
+// IndexOf (posizione 'umana')
+var posizione = listaCognomiOrdinata.indexOf(cognomeUtente) + 1;
+
+// print liste
+console.log('Lista NON ordinata:', listaCognomi);
+console.log('Lista ordinata:', listaCognomiOrdinata);
+console.log('Posizione:', posizione);
+
+// Print nell'HTML (ul)
+var nomi = ''; 
 
 // Loop for
-var items = '';
-
-for (i = 0; i < list.length; i++) {
-    var item = list[i];
-
-     items += '<li>' + item + '</li>';  
+for (var i = 0; i < listaCognomiOrdinata.length; i++) {
+    nomi += '<li>' + listaCognomiOrdinata[i] + '</li>';
 }
-document.getElementById('list-last-name').innerHTML = items;
 
-// IndexOf (posizone "umana")
-var index = list.indexOf('Ambrogio') + 1;
+document.getElementById('lista-cognomi').innerHTML = nomi;
+
+
